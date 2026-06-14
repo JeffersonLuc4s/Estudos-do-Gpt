@@ -6,4 +6,4 @@ async function buscar() {
 fetch
 
 //EX3
-ela vai ter os dados convertidos de JSON() para javascript
+//ela vai ter os dados convertidos de JSON() para javascript
