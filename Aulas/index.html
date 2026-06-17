@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="tarefa">
+
+<button id="adicionar">Adicionar</button>
+
+<div id="lista"></div>
+<script>
+    const botao = document.getElementById("adicionar")
+    const tarefa = document.getElementById("tarefa")
+    const lista = document.getElementById("lista")
+    const tarefas = []
+    botao.addEventListener("click", () => {
+    tarefas.push(tarefa.value)
+    tarefa.value = ""
+    lista.innerHTML = ""
+    tarefas.forEach(tarefs => {
+        lista.innerHTML += `<div>${tarefs}</div>`
+    })
+})
+</script>
+</body>
+</html>
