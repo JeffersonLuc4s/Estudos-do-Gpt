@@ -4,25 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background-color: gray;
+            color: whitesmoke;
+        }
+    </style>
 </head>
 <body>
-    <input id="tarefa">
 
-<button id="adicionar">Adicionar</button>
+    <button id="buscar">Adicionar</button>
 
-<div id="lista"></div>
+    <div id="lista"></div>
 <script>
-    const botao = document.getElementById("adicionar")
-    const tarefa = document.getElementById("tarefa")
+    const botao = document.getElementById("buscar")
     const lista = document.getElementById("lista")
-    const tarefas = []
+
+    async function buscarUsuarios() {
+        const resposta = await fetch("https://jsonplaceholder.typicode.com/users")
+
+        const usuarios = await resposta.json()
+
+        const primeiro = usuarios.find(usuario => {
+            lista.innerHTML += `<div>${usuario}</div>`
+        })
+}
+
     botao.addEventListener("click", () => {
-    tarefas.push(tarefa.value)
-    tarefa.value = ""
-    lista.innerHTML = ""
-    tarefas.forEach(tarefs => {
-        lista.innerHTML += `<div>${tarefs}</div>`
-    })
+        buscarUsuarios()
 })
 </script>
 </body>
