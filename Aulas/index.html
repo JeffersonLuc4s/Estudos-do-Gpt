@@ -25,10 +25,11 @@
 
         const usuarios = await resposta.json()
 
-        const primeiro = usuarios.find(usuario => {
-            lista.innerHTML += `<div>${usuario}</div>`
-        })
+        usuarios.forEach(usuario => {
+        lista.innerHTML += `<div>${usuario.name} <br>${usuario.email}</div>`
+    })
 }
+
 
     botao.addEventListener("click", () => {
         buscarUsuarios()
