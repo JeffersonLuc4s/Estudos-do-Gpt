@@ -12,27 +12,32 @@
     </style>
 </head>
 <body>
-
-    <button id="buscar">Adicionar</button>
+    <input id="nome" type="text">nome:
+    <input id="classe" type="text">classe:
+    <button id="cadastrar">cadastrar</button>
 
     <div id="lista"></div>
 <script>
-    const botao = document.getElementById("buscar")
-    const lista = document.getElementById("lista")
+const botao = document.getElementById("cadastrar")
+const lista = document.getElementById("lista")
+const nome = document.getElementById("nome")
+const classe = document.getElementById("classe")
+const personagens = []
 
-    async function buscarUsuarios() {
-        const resposta = await fetch("https://jsonplaceholder.typicode.com/users")
-
-        const usuarios = await resposta.json()
-
-        usuarios.forEach(usuario => {
-        lista.innerHTML += `<div>${usuario.name} <br>${usuario.email}</div>`
-    })
+function atualizarLista() {
+    lista.innerHTML = ""
 }
 
-
-    botao.addEventListener("click", () => {
-        buscarUsuarios()
+botao.addEventListener("click", () => {
+    atualizarLista()
+    const personagem = {
+        nome: nome.value,
+        classe: classe.value
+    }
+    personagens.push(personagem)
+    personagens.forEach(cada => {
+        lista.innerHTML += `<div>nome: ${cada.nome} <br>classe: ${cada.classe}</div> `
+    })
 })
 </script>
 </body>
