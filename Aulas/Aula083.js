@@ -9,3 +9,8 @@ function salvarTarefas() {
     const texto = JSON.stringify(tarefas)
 }
 //EX3 Difícil
+const tarefas = []
+function salvarTarefas() {
+    const texto = JSON.stringify(tarefas)
+    localStorage.setItem("tarefas", texto)
+}
